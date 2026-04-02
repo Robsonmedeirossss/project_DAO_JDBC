@@ -1,6 +1,7 @@
 package model.entities;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Seller {
     private Integer id;
@@ -68,5 +69,29 @@ public class Seller {
 
     public void setDepartment(Department department) {
         this.department = department;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Seller seller = (Seller) o;
+        return Objects.equals(id, seller.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Seller{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", birthDate=" + birthDate +
+                ", baseSalary=" + baseSalary +
+                ", department=" + department +
+                '}';
     }
 }
